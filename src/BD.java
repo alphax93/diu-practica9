@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class BD {
 
@@ -29,7 +30,8 @@ public class BD {
                 tables.add(rs.getString("TABLE_NAME"));
             }
             return true;
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null,e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
